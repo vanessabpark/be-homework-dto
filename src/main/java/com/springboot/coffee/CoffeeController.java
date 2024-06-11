@@ -14,7 +14,6 @@ public class CoffeeController {
     // 1. DTO 클래스 및 유효성 검증을 적용하세요.
     @PostMapping
     public ResponseEntity postCoffee(@RequestBody @Valid CoffeePostDto coffeePostDto) {
-
         return new ResponseEntity<>(coffeePostDto, HttpStatus.CREATED);
     }
 

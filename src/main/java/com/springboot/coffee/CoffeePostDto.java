@@ -9,22 +9,16 @@ public class CoffeePostDto {
     private String korName;
 
     @NotBlank(message = "영어 이름은 필수 입력 사항 입니다.")
-    @Pattern(regexp = "^[a-zA-Z]+\\\\s?*([a-zA-Z]+$)\n")
-//    ^[A-Za-z]+( [A-Za-z]+)*$
+    @Pattern(regexp = "^[a-zA-Z]+\\s?([a-zA-Z]+$)")
     private String engName;
 
-    @NotBlank(message = "가격은 필수 입력 사항 입니다.")
-    @Pattern(regexp = "^(100|[1-9]\\d{2,3}|[1-4]\\d{4}|50000)$\n")
-    private String price;
+    @Min(100) @Max(50000)
+    private Integer price;
 
-    public String getKorName() {
-        return korName;
-    }
+    public String getKorName() { return korName; }
 
     public String getEngName() { return engName; }
 
-    public String getPrice() {
-        return price;
-    }
+    public Integer getPrice() { return price; }
 
 }
