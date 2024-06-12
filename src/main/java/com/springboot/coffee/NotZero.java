@@ -1,4 +1,4 @@
-package com.springboot.member;
+package com.springboot.coffee;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -9,9 +9,13 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = {NotSpaceValidator.class})
-public @interface NotSpace {
-    String message() default "공백이 아니어야 합니다";
+@Constraint(validatedBy = {NotZeroValidator.class})
+public @interface
+NotZero {
+    int min() default Integer.MIN_VALUE;
+    int max() default Integer.MAX_VALUE;
+
+    String message() default "0이외의 값이 들어와야 합니다.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
